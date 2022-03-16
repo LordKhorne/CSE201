@@ -32,6 +32,8 @@ public class InitialGUI extends JFrame {
 	
 	public static void main(String[] args) {
 				
+		// Test comment
+		
 		try {
 			
 			frame = new InitialGUI();
