@@ -1,3 +1,2 @@
-INDEX VERSION 1.131+C:\Users\Akaix\eclipse-workspace\.metadata\.plugins\org.eclipse.jdt.core
-3552872783.index
-2329624156.index
+INDEX VERSION 1.131+/Users/moustafadjuma/Documents/GitHub/CSE201/eclipse-workspace/.metadata/.plugins/org.eclipse.jdt.core
+1465644266.index
