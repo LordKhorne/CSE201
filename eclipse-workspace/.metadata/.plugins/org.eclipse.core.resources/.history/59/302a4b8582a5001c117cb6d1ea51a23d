@@ -1,0 +1,100 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.Border;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JTextArea;
+
+import java.io.File;
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class adminsRequestPage extends JFrame{
+	private JPanel contentPane;
+	static adminsRequestPage frame2;
+	
+	public static void main(String[] args) {
+				
+		try {
+			
+			frame2 = new adminsRequestPage();
+			frame2.setVisible(true);
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			
+		}
+				
+	}
+	
+	public adminsRequestPage() {
+		
+		setTitle("Admins Request Page");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 800, 600);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JPanel contentPane2 = new JPanel();
+		contentPane2.setBorder(new EmptyBorder(5, 5, 5, 5));
+		
+		
+		JLabel ttlTxt = new JLabel("Admins Request Page");
+		ttlTxt.setFont(new Font("Georgia", Font.BOLD, 30));
+		ttlTxt.setBounds(235, 20, 400, 200);
+		contentPane.add(ttlTxt);
+		
+		JLabel textBox = new JLabel("Enter Text:");
+		textBox.setFont(new Font("Georgia", Font.BOLD, 12));
+		textBox.setBounds(155, 260, 121, 30);
+		contentPane.add(textBox);
+		
+		Border border = BorderFactory.createLineBorder(Color.BLACK);
+		
+		JTextArea responce = new JTextArea();
+		responce.setBounds(239, 260, 282, 31);
+		//loginUName.lineLimit(2);
+		responce.setFont(new Font("Serif", Font.PLAIN, 14));
+		responce.setLineWrap(false);
+		responce.setWrapStyleWord(true);
+		responce.setBorder(BorderFactory.createCompoundBorder(border,
+	            BorderFactory.createEmptyBorder(5, 10, 10, 10)));
+		contentPane.add(responce);
+		
+		
+		
+		JPanel panel = new JPanel(); // the panel is not visible in output
+        JLabel label = new JLabel("Enter Text");
+        JTextField tf = new JTextField(10); // accepts upto 10 characters
+        JButton send = new JButton("Send");
+        JButton reset = new JButton("Reset");
+        panel.add(label); // Components Added using Flow Layout
+        panel.add(tf);
+        panel.add(send);
+        panel.add(reset);
+        
+        frame2.add(reset)
+
+
+	}
+}
