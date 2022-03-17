@@ -34,6 +34,13 @@ public class search_feature {
 		for (String str : match) {
 			System.out.print(str + " ");
 		}
+		
+		if (match.size() == 0) {
+			System.out.println("Sorry, app not found");
+			
+		}
+		
+match.clear();
 
 	}
 
