@@ -24,11 +24,11 @@ import java.io.File;
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class InitialGUI extends JFrame {
+public class LoginPage extends JFrame {
 
 		
 	private JPanel contentPane;
-	static InitialGUI frame;
+	static LoginPage frame;
 	
 	public static void main(String[] args) {
 				
@@ -36,7 +36,7 @@ public class InitialGUI extends JFrame {
 		
 		try {
 			
-			frame = new InitialGUI();
+			frame = new LoginPage();
 			frame.setVisible(true);
 			
 		} catch (Exception e) {
@@ -52,10 +52,11 @@ public class InitialGUI extends JFrame {
 		/**
 		 * Create the frame.
 		 */
-		public InitialGUI() {
+		public LoginPage() {
 			
+			frame = this;
 			setTitle("Meta-Repo");
-			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			setBounds(100, 100, 800, 600);
 			contentPane = new JPanel();
 			contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -108,6 +109,10 @@ public class InitialGUI extends JFrame {
 			loginBut.setBounds(265, 360, 211, 44);
 			contentPane.add(loginBut);
 			
+			JButton AdminLogin = new JButton("Login As Administrator");
+			AdminLogin.setBounds(265, 425, 211, 44);
+			contentPane.add(AdminLogin);
+			
 			JLabel noAcc = new JLabel("Account not found!");
 			noAcc.setFont(new Font("Georgia", Font.BOLD, 12));
 			noAcc.setBounds(310, 400, 300, 30);
@@ -141,6 +146,62 @@ public class InitialGUI extends JFrame {
 	        					if(parts[1].equals(loginPass.getText())) {
 	        						
 	        						frame.setVisible(false);
+	        						String[] apps = { "jump", "link", "Facebook", "Bumble", "tinder", "hootsuite", "James", "jim"};
+	        						ArrayList<String> matches = new ArrayList<String>();
+	        						
+	        						System.out.print("Search: ");
+	        						search_feature.searchFeature(apps, matches);
+	        						
+	        						
+	        					} else {
+	        						
+	        						wrngPass.setVisible(true);
+	        						loginPass.setText("");
+	        						
+	        					}
+	        					
+	        				}
+	        					
+	        			}
+	        			
+	        			if (!found) {
+	        				
+	        				noAcc.setVisible(true);
+	        				loginPass.setText("");
+	        				
+	        			}
+	        			
+	        		} catch (Exception e1) {
+	        			e1.printStackTrace();
+	        		}
+	        	}
+	            	
+	            	
+	            });
+			
+			AdminLogin.addActionListener(new ActionListener() {
+	            @Override
+	            public void actionPerformed(ActionEvent e) {
+	            	
+	            	String[] parts;
+	            	boolean found = false;
+	            	
+	            	try(Scanner sca = new Scanner(new File("AdminAccountFiles.txt"))){
+	        			while(sca.hasNextLine() && !found) {
+	        				
+	        				String nxt = sca.nextLine();
+	        				parts= nxt.split(" ", 2);;
+	        				if(parts[0].equals(loginUName.getText())) {
+	        					
+	        					found = true;
+	        					
+	        					if(parts[1].equals(loginPass.getText())) {
+	        						
+	        						frame.setVisible(false);
+	        						adminsRequestPage frame2 = new adminsRequestPage();
+	        		            	frame.setVisible(false);
+	        		            	frame2.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+	        		            	frame2.setVisible(true);
 	        						
 	        					} else {
 	        						
