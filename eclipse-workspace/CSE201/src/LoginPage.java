@@ -21,6 +21,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JTextArea;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -146,12 +147,28 @@ public class LoginPage extends JFrame {
 	        					if(parts[1].equals(loginPass.getText())) {
 	        						
 	        						frame.setVisible(false);
-	        						String[] apps = { "jump", "link", "Facebook", "Bumble", "tinder", "hootsuite", "James", "jim"};
+	        						/*String[] apps = { "jump", "link", "Facebook", "Bumble", "tinder", "hootsuite", "James", "jim"};
 	        						ArrayList<String> matches = new ArrayList<String>();
 	        						
 	        						System.out.print("Search: ");
 	        						search_feature.searchFeature(apps, matches);
+	        						*/
+	        						File reader = new File("appList.txt");
+	        						try {
+	        							Scanner appReader = new Scanner(reader);
+	        							while (appReader.hasNextLine()) {
+	        								String name = appReader.nextLine();
+	        								Application tmp = new Application(name);
+	        								appGUI.apps.add(tmp);
+	        								
+	        								
+	        							}
+	        						} catch (FileNotFoundException er) {
+	        							// TODO Auto-generated catch block
+	        							er.printStackTrace();
+	        						}
 	        						
+	        						appGUI.createFrame();
 	        						
 	        					} else {
 	        						
