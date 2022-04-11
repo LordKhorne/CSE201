@@ -1,0 +1,10 @@
+import java.io.File;
+
+public class Comment {
+	//Creates a text file that contains the comments for a specific app
+	public Comment(String app) {
+		String fileName = app + "comments.txt";
+		
+		File newFile = new File(fileName);
+	}
+}

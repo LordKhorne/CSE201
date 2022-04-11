@@ -1,0 +1,25 @@
+import java.io.File;
+
+public class Comment {
+	
+	//------------------ Constructors --------------------------------
+	
+	
+	//Creates a text file that contains the comments for a specific app
+	public Comment(String app) {
+		String fileName = app + "comments.txt";
+		
+		File newFile = new File(fileName);
+	}
+	
+	//------------------ Methods --------------------------------------
+	
+	//------------------ Getters and Setters --------------------------
+	public String[] getComments() {
+		
+		
+		return null;
+		
+	}
+	
+}
