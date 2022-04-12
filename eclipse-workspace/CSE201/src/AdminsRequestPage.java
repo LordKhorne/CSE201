@@ -26,13 +26,13 @@ import java.io.File;
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class adminsRequestPage extends JFrame{
+public class AdminsRequestPage extends JFrame{
 	//private JPanel contentPane;
 	
 	
-	static adminsRequestPage frame;
+	static AdminsRequestPage frame;
 	
-	public adminsRequestPage() {
+	public AdminsRequestPage() {
 		
 		frame = this;
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

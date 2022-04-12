@@ -21,6 +21,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JTextArea;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -146,11 +147,32 @@ public class LoginPage extends JFrame {
 	        					if(parts[1].equals(loginPass.getText())) {
 	        						
 	        						frame.setVisible(false);
-	        						String[] apps = { "jump", "link", "Facebook", "Bumble", "tinder", "hootsuite", "James", "jim"};
-	        						ArrayList<String> matches = new ArrayList<String>();
+//	        						try {
+//	        							Search window = new Search();
+//	        							window.open();
+//	        						} catch (Exception e1) {
+//	        							e1.printStackTrace();
+//	        						}
 	        						
-	        						System.out.print("Search: ");
-	        						search_feature.searchFeature(apps, matches);
+	        						AppGUI newWindow = new AppGUI();
+	        						File reader = new File("appList.txt");
+	        						try {
+	        							Scanner appReader = new Scanner(reader);
+	        							while (appReader.hasNextLine()) {
+	        								String name = appReader.nextLine();
+	        								Application tmp = new Application(name);
+	        								newWindow.apps.add(tmp);
+	        								
+	        								
+	        							}
+	        						} catch (FileNotFoundException e1) {
+	        							// TODO Auto-generated catch block
+	        							e1.printStackTrace();
+	        						}
+	        						
+	        						
+	        						
+	        						newWindow.createFrame();
 	        						
 	        						
 	        					} else {
@@ -198,7 +220,7 @@ public class LoginPage extends JFrame {
 	        					if(parts[1].equals(loginPass.getText())) {
 	        						
 	        						frame.setVisible(false);
-	        						adminsRequestPage frame2 = new adminsRequestPage();
+	        						AdminsRequestPage frame2 = new AdminsRequestPage();
 	        		            	frame.setVisible(false);
 	        		            	frame2.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	        		            	frame2.setVisible(true);

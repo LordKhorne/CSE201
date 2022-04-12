@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class search_feature {
+public class Search_Feature {
 	public static void main(String[] args) {
 		String[] apps = { "jump", "link", "Facebook", "Bumble", "tinder", "hootsuite", "James", "jim"
 
