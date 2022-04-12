@@ -1,0 +1,24 @@
+import javax.swing.JFrame;
+import java.awt.BorderLayout;
+import java.awt.Font;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+
+public class CommentGUI {
+	
+	public static void main(String[] args) {		
+		createFrame();
+		
+	}
+
+	private static void createFrame() {
+		// TODO Auto-generated method stub
+		
+	}
+}

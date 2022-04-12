@@ -1,0 +1,21 @@
+import javax.swing.JFrame;
+import javax.swing.JTextArea;
+import java.awt.BorderLayout;
+import javax.swing.JSplitPane;
+import java.awt.GridLayout;
+import javax.swing.BoxLayout;
+import javax.swing.JEditorPane;
+
+public class CommentGUI extends JFrame {
+	public CommentGUI() {
+		getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.X_AXIS));
+		
+		JEditorPane editorPane = new JEditorPane();
+		getContentPane().add(editorPane);
+	}
+
+	
+	public static void main(String[] args) {
+		CommentGUI file = new CommentGUI();
+	}
+}

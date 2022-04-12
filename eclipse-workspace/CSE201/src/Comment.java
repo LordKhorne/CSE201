@@ -56,12 +56,13 @@ public class Comment {
 		return comments;
 	}
 	
-	public static void dispComments(String app) {
+	public static String dispComments(String app) {
 		ArrayList comments = getComments(app);
-		
+		String com = "";
 		for (int i = 0; i < comments.size(); i++) {
-			System.out.println(comments.get(i));
+			com += comments.get(i) + "\n";
 		}
+		return com;
 	}
 	
 	//------------------ Test --------------------------------------

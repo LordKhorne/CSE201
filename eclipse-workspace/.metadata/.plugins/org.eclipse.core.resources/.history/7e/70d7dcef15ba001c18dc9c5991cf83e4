@@ -1,0 +1,84 @@
+import javax.swing.JFrame;
+import javax.swing.JTextArea;
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JSplitPane;
+import java.awt.GridLayout;
+import javax.swing.BoxLayout;
+import javax.swing.JEditorPane;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.RowSpec;
+import javax.swing.JTextPane;
+import javax.swing.JTextField;
+import java.awt.FlowLayout;
+import java.awt.CardLayout;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+
+public class CommentGUI extends JFrame {
+	private JTextArea oldComments;
+	private JTextField textField;
+	public CommentGUI() {
+		getContentPane().setLayout(new BorderLayout(0, 0));
+		
+		JPanel main = new JPanel();
+		getContentPane().add(main);
+		
+		JLabel title = new JLabel("Comment Section");
+		title.setHorizontalAlignment(SwingConstants.CENTER);
+		title.setFont(new Font("Georgia", Font.BOLD, 40));
+		
+		JButton newComment = new JButton("Post Comment");
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		
+		textField = new JTextField();
+		textField.setColumns(10);
+		
+		oldComments = new JTextArea(5, 20);
+		oldComments.setText(Comment.dispComments("test"));
+		oldComments.setEditable(false);
+		oldComments.setColumns(30);
+		GroupLayout gl_main = new GroupLayout(main);
+		gl_main.setHorizontalGroup(
+			gl_main.createParallelGroup(Alignment.LEADING)
+				.addComponent(textField, GroupLayout.PREFERRED_SIZE, 450, GroupLayout.PREFERRED_SIZE)
+				.addComponent(oldComments, GroupLayout.PREFERRED_SIZE, 450, GroupLayout.PREFERRED_SIZE)
+				.addComponent(title, GroupLayout.PREFERRED_SIZE, 450, GroupLayout.PREFERRED_SIZE)
+				.addComponent(newComment, GroupLayout.PREFERRED_SIZE, 450, GroupLayout.PREFERRED_SIZE)
+				.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 450, GroupLayout.PREFERRED_SIZE)
+		);
+		gl_main.setVerticalGroup(
+			gl_main.createParallelGroup(Alignment.LEADING)
+				.addComponent(textField, GroupLayout.PREFERRED_SIZE, 272, GroupLayout.PREFERRED_SIZE)
+				.addComponent(oldComments, GroupLayout.PREFERRED_SIZE, 272, GroupLayout.PREFERRED_SIZE)
+				.addComponent(title, GroupLayout.PREFERRED_SIZE, 272, GroupLayout.PREFERRED_SIZE)
+				.addComponent(newComment, GroupLayout.PREFERRED_SIZE, 272, GroupLayout.PREFERRED_SIZE)
+				.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 272, GroupLayout.PREFERRED_SIZE)
+		);
+		main.setLayout(gl_main);
+	}
+
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					CommentGUI frame = new CommentGUI();
+					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					frame.setSize(800, 800);
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+}

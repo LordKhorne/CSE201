@@ -1,0 +1,93 @@
+import javax.swing.JFrame;
+import javax.swing.JTextArea;
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JSplitPane;
+import java.awt.GridLayout;
+import javax.swing.BoxLayout;
+import javax.swing.JEditorPane;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.RowSpec;
+import javax.swing.JTextPane;
+import javax.swing.JTextField;
+import java.awt.FlowLayout;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+
+public class CommentGUI extends JFrame {
+	private JTextArea oldComments;
+	private JTextField textField;
+	public CommentGUI() {
+		GridBagLayout gridBagLayout = new GridBagLayout();
+		gridBagLayout.columnWidths = new int[]{402, 0};
+		gridBagLayout.rowHeights = new int[]{155, 80, 0};
+		gridBagLayout.columnWeights = new double[]{0.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
+		getContentPane().setLayout(gridBagLayout);
+		lblNewLabel.setLabelFor(textField);
+		
+		JPanel main = new JPanel();
+		GridBagConstraints gbc_main = new GridBagConstraints();
+		gbc_main.anchor = GridBagConstraints.EAST;
+		gbc_main.fill = GridBagConstraints.VERTICAL;
+		gbc_main.insets = new Insets(0, 0, 5, 0);
+		gbc_main.gridx = 0;
+		gbc_main.gridy = 0;
+		getContentPane().add(main, gbc_main);
+		main.setLayout(new BorderLayout(0, 0));
+		
+		JLabel title = new JLabel("Comment Section");
+		title.setHorizontalAlignment(SwingConstants.CENTER);
+		title.setFont(new Font("Georgia", Font.BOLD, 40));
+		main.add(title, BorderLayout.NORTH);
+		
+		JButton newComment = new JButton("Post Comment");
+		main.add(newComment, BorderLayout.EAST);
+		
+		textField = new JTextField();
+		main.add(textField, BorderLayout.CENTER);
+		textField.setColumns(10);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
+		gbc_lblNewLabel.anchor = GridBagConstraints.SOUTHWEST;
+		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 0);
+		gbc_lblNewLabel.gridx = 0;
+		gbc_lblNewLabel.gridy = 0;
+		getContentPane().add(lblNewLabel, gbc_lblNewLabel);
+		
+		oldComments = new JTextArea(5, 20);
+		GridBagConstraints gbc_oldComments = new GridBagConstraints();
+		gbc_oldComments.anchor = GridBagConstraints.NORTHEAST;
+		gbc_oldComments.gridx = 0;
+		gbc_oldComments.gridy = 1;
+		getContentPane().add(oldComments, gbc_oldComments);
+		oldComments.setText(Comment.dispComments("test"));
+		oldComments.setEditable(false);
+		oldComments.setColumns(30);
+	}
+
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					CommentGUI frame = new CommentGUI();
+					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					frame.setSize(800, 800);
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+}

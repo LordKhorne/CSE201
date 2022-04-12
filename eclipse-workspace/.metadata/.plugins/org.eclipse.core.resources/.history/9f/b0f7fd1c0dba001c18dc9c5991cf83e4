@@ -1,0 +1,13 @@
+import javax.swing.JFrame;
+import java.awt.BorderLayout;
+import javax.swing.JLabel;
+
+public class CommentGUI extends JFrame {
+	public CommentGUI() {
+		getContentPane().setLayout(new BorderLayout(0, 0));
+		
+		JLabel title = new JLabel("Comments Section");
+		getContentPane().add(title, BorderLayout.NORTH);
+	}
+
+}

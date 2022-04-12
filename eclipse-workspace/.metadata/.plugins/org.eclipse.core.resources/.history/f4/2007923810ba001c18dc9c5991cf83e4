@@ -1,0 +1,34 @@
+import javax.swing.JFrame;
+import javax.swing.JTextArea;
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JSplitPane;
+import java.awt.GridLayout;
+import javax.swing.BoxLayout;
+import javax.swing.JEditorPane;
+
+public class CommentGUI extends JFrame {
+	public CommentGUI() {
+		getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.X_AXIS));
+		
+		JEditorPane editorPane = new JEditorPane();
+		getContentPane().add(editorPane);
+	}
+
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					CommentGUI frame = new CommentGUI();
+					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					frame.setSize(800, 800);
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+}

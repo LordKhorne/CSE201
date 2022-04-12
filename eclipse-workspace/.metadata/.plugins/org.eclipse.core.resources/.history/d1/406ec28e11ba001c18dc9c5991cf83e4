@@ -1,0 +1,40 @@
+import javax.swing.JFrame;
+import javax.swing.JTextArea;
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JSplitPane;
+import java.awt.GridLayout;
+import javax.swing.BoxLayout;
+import javax.swing.JEditorPane;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+
+public class CommentGUI extends JFrame {
+	public CommentGUI() {
+		getContentPane().setLayout(new BorderLayout(0, 0));
+		
+		JPanel panel = new JPanel();
+		getContentPane().add(panel, BorderLayout.NORTH);
+		
+		JLabel title = new JLabel("Comment Section");
+		panel.add(title);
+	}
+
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					CommentGUI frame = new CommentGUI();
+					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					frame.setSize(800, 800);
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+}
