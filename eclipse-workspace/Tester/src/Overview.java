@@ -36,7 +36,7 @@
 			try {
 				
 				frame = new Overview();
-				frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				frame.setVisible(true);
 				
 			} catch (Exception e) {
