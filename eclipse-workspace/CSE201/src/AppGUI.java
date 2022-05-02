@@ -125,7 +125,7 @@ public class AppGUI {
 		
 		
 		
-		JButton nextBut = new JButton("Press to select");
+		JButton nextBut = new JButton("Press to select comment section");
 		nextBut.addActionListener(new ActionListener() {
 
 			@Override
@@ -142,7 +142,28 @@ public class AppGUI {
 		panel.add(nextBut, BorderLayout.EAST);
 		
 		//frame.pack();
+		//frame.getContentPane().add(panel);
+		
+		JButton nextBut2 = new JButton("Press to select description");
+		nextBut2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (list.getSelectedIndex() != -1) {
+					frame.setVisible(false);
+					DescriptionGUI d = new DescriptionGUI(list.getSelectedValue());
+					d.setVisible(true);
+					d.setSize(800, 800);
+				} 
+			}
+			
+		});
+		panel.add(nextBut2, BorderLayout.SOUTH);
+		
+		//frame.pack();
 		frame.getContentPane().add(panel);
+		
+		
 	}
 
 	

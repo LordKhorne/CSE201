@@ -27,7 +27,8 @@
             <entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_281.jdk/Contents/Home/jre/lib/endorsed"/>
         </endorsedDirs>
     </libraryInfo>
-    <libraryInfo home="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home" version="1.8.0_331">
+    <libraryInfo home="/Library/Java/JavaVirtualMachines/jdk-16.jdk/Contents/Home" version="16"/>
+    <libraryInfo home="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home" version="1.8.0_301">
         <bootpath>
             <entry path="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/lib/resources.jar"/>
             <entry path="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/lib/rt.jar"/>
@@ -39,7 +40,7 @@
             <entry path="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/classes"/>
         </bootpath>
         <extensionDirs>
-            <entry path="/Users/nateelli/Library/Java/Extensions"/>
+            <entry path="/Users/coltonchadwick/Library/Java/Extensions"/>
             <entry path="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/lib/ext"/>
             <entry path="/Library/Java/Extensions"/>
             <entry path="/Network/Library/Java/Extensions"/>
