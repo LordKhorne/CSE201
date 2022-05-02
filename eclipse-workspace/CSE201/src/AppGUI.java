@@ -64,6 +64,28 @@ public class AppGUI {
 		title.setBounds(320, 20, 400, 200);
 		panel.add(BorderLayout.NORTH, title);
 		
+		File reader = new File("AccountInfo.txt");
+		String accountName = "";
+		boolean administrator = false;
+		
+		try {
+			Scanner appReader = new Scanner(reader);
+			accountName = appReader.next();
+			if(appReader.next().equals("true")) administrator = true;
+			else administrator = false;
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		JLabel account;
+		if(administrator) account = new JLabel("Signed in as Administrator " + accountName);
+		else account = new JLabel("Signed in as " + accountName);
+		account.setFont(new Font("Georgia", Font.BOLD, 12));
+		account.setBounds(350, -5, 500, 30);
+		panel.add(account);
+		
 		JButton searchBut = new JButton("Search");
 		searchBut.setBounds(0, 0, 80, 20);
 		panel.add(searchBut);
@@ -72,10 +94,14 @@ public class AppGUI {
             @Override
             public void actionPerformed(ActionEvent e1) {
             	
-            	frame.setVisible(false);
 				try {
-					Search window = new Search();
-					window.open();
+					
+					frame.setVisible(false);
+					searcgGUI frame = new searcgGUI();
+					//frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+					//frame.setSize(800, 800);
+					//frame.setVisible(true);
+					
 				} catch (Exception e2) {
 					e2.printStackTrace();
 				}
@@ -85,7 +111,7 @@ public class AppGUI {
 		});
 		
 		JButton CommentBut = new JButton("Comments");
-		CommentBut.setBounds(430, 0, 100, 20);
+		CommentBut.setBounds(0, 20, 100, 20);
 		panel.add(CommentBut);
 		
 		CommentBut.addActionListener(new ActionListener() {

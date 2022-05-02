@@ -233,13 +233,21 @@ public class LoginPage extends JFrame {
 	        					
 	        					if(parts[1].equals(loginPass.getText())) {
 	        						
+	        						File newFile = new File("AccountInfo.txt");
+	        							
+	        						try {
+	        							FileWriter fileWriter = new FileWriter(newFile, false);
+	        								
+	        							fileWriter.write(loginUName.getText() + " False");
+	        							fileWriter.close();
+	        							
+	        						} catch (IOException e4) {
+	        							
+	        							e4.printStackTrace();
+	        							
+	        						}
+	        						
 	        						frame.setVisible(false);
-//	        						try {
-//	        							Search window = new Search();
-//	        							window.open();
-//	        						} catch (Exception e1) {
-//	        							e1.printStackTrace();
-//	        						}
 	        						
 	        						AppGUI newWindow = new AppGUI();
 	        						File reader = new File("appList.txt");
@@ -314,6 +322,21 @@ public class LoginPage extends JFrame {
 	        					found = true;
 	        					
 	        					if(parts[1].equals(loginPass.getText())) {
+	        						
+	        						
+	        						File newFile = new File("AccountInfo.txt");
+        							
+	        						try {
+	        							FileWriter fileWriter = new FileWriter(newFile, false);
+	        								
+	        							fileWriter.write(loginUName.getText() + " true");
+	        							fileWriter.close();
+	        							
+	        						} catch (IOException e4) {
+	        							
+	        							e4.printStackTrace();
+	        							
+	        						}
 	        						
 	        						frame.setVisible(false);
 	        						AdminsRequestPage frame2 = new AdminsRequestPage();
