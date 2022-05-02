@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -26,6 +27,7 @@ import javax.swing.border.EmptyBorder;
 public class AppGUI {
 	
 	public static ArrayList<Application> apps = new ArrayList<Application>();
+	private static JList<String> list;
 	
 	public static void main(String[] args) {
 		
@@ -74,8 +76,8 @@ public class AppGUI {
             	
             	frame.setVisible(false);
 				try {
-					Search window = new Search();
-					window.open();
+//					Search window = new Search();
+//					window.open();
 				} catch (Exception e2) {
 					e2.printStackTrace();
 				}
@@ -85,7 +87,7 @@ public class AppGUI {
 		});
 		
 		JButton CommentBut = new JButton("Comments");
-		CommentBut.setBounds(430, 0, 100, 20);
+		CommentBut.setBounds(600, 0, 80, 20);
 		panel.add(CommentBut);
 		
 		CommentBut.addActionListener(new ActionListener() {
@@ -110,40 +112,40 @@ public class AppGUI {
 		
 		});
 		
-		JPanel buttonsPanel = new JPanel(new GridLayout(5, 5, 2, 2));
-		
-		//DefaultListModel tmp = new DefaultListModel();
-		JButton[] buttons = new JButton[apps.size()];
-		for (int i = 0; i < apps.size(); i++) {
-//			tmp.addElement(apps.get(i).getName());
-			buttons[i] = new JButton(apps.get(i).getName());
-			buttons[i].setSize(1, 1);
-			buttons[i].setActionCommand(buttons[i].getName());
-			buttons[i].addActionListener(new ActionListener() {
-
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					String app = e.getActionCommand();
-					//JOptionPane.showMessageDialog(null, "You have clicked: " + app); Test
-					createAppFrame(app);
-				}
-				
-			});
-			buttonsPanel.add(buttons[i]);
+		DefaultListModel<String> l1 = new DefaultListModel<>();
+		for (Application a : apps) {
+			l1.addElement(a.name);
 		}
 		
-//		JList appList = new JList(tmp);
-//		appList.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-//		appList.setLayoutOrientation(JList.VERTICAL_WRAP);
-//		buttons.setBounds(320, 20, 400, 200);
-//		panel.add(BorderLayout.CENTER, appList);
+		list = new JList<>(l1);
+		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
-		panel.add(buttonsPanel, BorderLayout.CENTER);
+		panel.add(list);
+		
+		
+		
+		
+		JButton nextBut = new JButton("Press to select");
+		nextBut.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (list.getSelectedIndex() != -1) {
+					frame.setVisible(false);
+					NewCommentGUI n = new NewCommentGUI(list.getSelectedValue());
+					n.setVisible(true);
+					n.setSize(800, 800);
+				}
+			}
+			
+		});
+		panel.add(nextBut, BorderLayout.EAST);
+		
+		//frame.pack();
 		frame.getContentPane().add(panel);
-		frame.pack();
-		
 	}
 
+	
 	protected static void createAppFrame(String app) {
 		// TODO Auto-generated method stub
 //		Application tmp = apps.get(apps.indexOf(app));

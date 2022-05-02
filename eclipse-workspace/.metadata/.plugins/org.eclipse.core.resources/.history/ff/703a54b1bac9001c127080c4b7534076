@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="CSE201">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="../../../../eclipse/java-2020-12/eclipse/"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="16"/>
+    <property name="source" value="16"/>
+    <path id="CSE201.classpath">
+        <pathelement location="bin"/>
+        <pathelement location="../../../../.p2/pool/plugins/org.eclipse.swt.win32.win32.x86_64_3.119.0.v20220223-1102.jar"/>
+    </path>
+    <path id="run.adminsRequestPage.classpath">
+        <path refid="CSE201.classpath"/>
+        <pathelement location="../../../../.p2/pool/plugins/org.eclipse.swt.win32.win32.x86_64_3.119.0.v20220223-1102.jar"/>
+    </path>
+    <path id="run.appGUI.classpath">
+        <path refid="CSE201.classpath"/>
+        <pathelement location="../../../../.p2/pool/plugins/org.eclipse.swt.win32.win32.x86_64_3.119.0.v20220223-1102.jar"/>
+    </path>
+    <path id="run.Comment.classpath">
+        <path refid="CSE201.classpath"/>
+        <pathelement location="../../../../.p2/pool/plugins/org.eclipse.swt.win32.win32.x86_64_3.119.0.v20220223-1102.jar"/>
+    </path>
+    <path id="run.CommentGUI.classpath">
+        <path refid="CSE201.classpath"/>
+        <pathelement location="../../../../.p2/pool/plugins/org.eclipse.swt.win32.win32.x86_64_3.119.0.v20220223-1102.jar"/>
+    </path>
+    <path id="run.LoginPage.classpath">
+        <path refid="CSE201.classpath"/>
+        <pathelement location="../../../../.p2/pool/plugins/org.eclipse.swt.win32.win32.x86_64_3.119.0.v20220223-1102.jar"/>
+    </path>
+    <path id="run.Overview.classpath">
+        <path refid="CSE201.classpath"/>
+        <pathelement location="../../../../.p2/pool/plugins/org.eclipse.swt.win32.win32.x86_64_3.119.0.v20220223-1102.jar"/>
+    </path>
+    <path id="run.Search.classpath">
+        <path refid="CSE201.classpath"/>
+        <pathelement location="../../../../.p2/pool/plugins/org.eclipse.swt.win32.win32.x86_64_3.119.0.v20220223-1102.jar"/>
+    </path>
+    <path id="run.search_feature.classpath">
+        <path refid="CSE201.classpath"/>
+        <pathelement location="../../../../.p2/pool/plugins/org.eclipse.swt.win32.win32.x86_64_3.119.0.v20220223-1102.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="CSE201.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="adminsRequestPage">
+        <java classname="adminsRequestPage" failonerror="true" fork="yes">
+            <classpath refid="run.adminsRequestPage.classpath"/>
+        </java>
+    </target>
+    <target name="appGUI">
+        <java classname="AppGUI" failonerror="true" fork="yes">
+            <classpath refid="run.appGUI.classpath"/>
+        </java>
+    </target>
+    <target name="Comment">
+        <java classname="Comment" failonerror="true" fork="yes">
+            <classpath refid="run.Comment.classpath"/>
+        </java>
+    </target>
+    <target name="CommentGUI">
+        <java classname="CommentGUI" failonerror="true" fork="yes">
+            <classpath refid="run.CommentGUI.classpath"/>
+        </java>
+    </target>
+    <target name="LoginPage">
+        <java classname="LoginPage" failonerror="true" fork="yes">
+            <classpath refid="run.LoginPage.classpath"/>
+        </java>
+    </target>
+    <target name="Overview">
+        <java classname="Overview" failonerror="true" fork="yes">
+            <classpath refid="run.Overview.classpath"/>
+        </java>
+    </target>
+    <target name="Search">
+        <java classname="Search" failonerror="true" fork="yes">
+            <classpath refid="run.Search.classpath"/>
+        </java>
+    </target>
+    <target name="search_feature">
+        <java classname="search_feature" failonerror="true" fork="yes">
+            <classpath refid="run.search_feature.classpath"/>
+        </java>
+    </target>
+</project>
