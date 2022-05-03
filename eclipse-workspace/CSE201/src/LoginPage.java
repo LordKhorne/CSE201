@@ -87,24 +87,18 @@ public class LoginPage extends JFrame {
 			
 			Border border = BorderFactory.createLineBorder(Color.BLACK);
 			
-			JTextArea loginUName = new JTextArea();
+			JTextField loginUName = new JTextField(15);
 			loginUName.setBounds(239, 260, 282, 31);
-			//loginUName.lineLimit(2);
 			loginUName.setFont(new Font("Serif", Font.PLAIN, 14));
-			loginUName.setLineWrap(false);
-			loginUName.setWrapStyleWord(true);
 			loginUName.setBorder(BorderFactory.createCompoundBorder(border,
-		            BorderFactory.createEmptyBorder(5, 10, 10, 10)));
+		    BorderFactory.createEmptyBorder(3, 10, 3, 10)));
 			contentPane.add(loginUName);
 			
-			JTextArea loginPass = new JTextArea();
+			JTextField loginPass = new JTextField(15);
 			loginPass.setBounds(239, 310, 282, 31);
-			//loginUName.lineLimit(2);
 			loginPass.setFont(new Font("Serif", Font.PLAIN, 14));
-			loginPass.setLineWrap(false);
-			loginPass.setWrapStyleWord(true);
 			loginPass.setBorder(BorderFactory.createCompoundBorder(border,
-		            BorderFactory.createEmptyBorder(5, 10, 10, 10)));
+		            BorderFactory.createEmptyBorder(3, 10, 3, 10)));
 			contentPane.add(loginPass);
 			
 			JLabel noAcc = new JLabel("Account not found!");
@@ -139,12 +133,8 @@ public class LoginPage extends JFrame {
 			loginBut.setBounds(265, 360, 211, 44);
 			contentPane.add(loginBut);
 			
-			JButton AdminLogin = new JButton("Login As Administrator");
-			AdminLogin.setBounds(265, 425, 211, 44);
-			contentPane.add(AdminLogin);
-			
 			JButton registerBut = new JButton("Register Account");
-			registerBut.setBounds(265, 485, 211, 44);
+			registerBut.setBounds(265, 425, 211, 44);
 			contentPane.add(registerBut);
 			
 			registerBut.addActionListener(new ActionListener() {
@@ -226,7 +216,7 @@ public class LoginPage extends JFrame {
 	        			while(sca.hasNextLine() && !found) {
 	        				
 	        				String nxt = sca.nextLine();
-	        				parts= nxt.split(" ", 2);;
+	        				parts= nxt.split(" ", 3);;
 	        				if(parts[0].equals(loginUName.getText())) {
 	        					
 	        					found = true;
@@ -238,7 +228,7 @@ public class LoginPage extends JFrame {
 	        						try {
 	        							FileWriter fileWriter = new FileWriter(newFile, false);
 	        								
-	        							fileWriter.write(loginUName.getText() + " False");
+	        							fileWriter.write(loginUName.getText() + " " + parts[2]);
 	        							fileWriter.close();
 	        							
 	        						} catch (IOException e4) {
@@ -300,79 +290,7 @@ public class LoginPage extends JFrame {
 	            	
 	            });
 			
-			AdminLogin.addActionListener(new ActionListener() {
-	            @Override
-	            public void actionPerformed(ActionEvent e) {
-	            	
-	            	yesAcc.setVisible(false);
-					wrngPass.setVisible(false);
-					noAcc.setVisible(false);
-					yesAccMade.setVisible(false);
-					
-	            	String[] parts;
-	            	boolean found = false;
-	            	
-	            	try(Scanner sca = new Scanner(new File("AdminAccountFiles.txt"))){
-	        			while(sca.hasNextLine() && !found) {
-	        				
-	        				String nxt = sca.nextLine();
-	        				parts= nxt.split(" ", 2);;
-	        				if(parts[0].equals(loginUName.getText())) {
-	        					
-	        					found = true;
-	        					
-	        					if(parts[1].equals(loginPass.getText())) {
-	        						
-	        						
-	        						File newFile = new File("AccountInfo.txt");
-        							
-	        						try {
-	        							FileWriter fileWriter = new FileWriter(newFile, false);
-	        								
-	        							fileWriter.write(loginUName.getText() + " true");
-	        							fileWriter.close();
-	        							
-	        						} catch (IOException e4) {
-	        							
-	        							e4.printStackTrace();
-	        							
-	        						}
-	        						
-	        						frame.setVisible(false);
-	        						AdminsRequestPage frame2 = new AdminsRequestPage();
-	        		            	frame.setVisible(false);
-	        		            	frame2.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-	        		            	frame2.setVisible(true);
-	        						
-	        					} else {
-	        						
-	        						yesAcc.setVisible(false);
-	        						noAcc.setVisible(false);
-	        						wrngPass.setVisible(true);
-	        						loginPass.setText("");
-	        						
-	        					}
-	        					
-	        				}
-	        					
-	        			}
-	        			
-	        			if (!found) {
-	        				
-	        				yesAcc.setVisible(false);
-    						wrngPass.setVisible(false);
-	        				noAcc.setVisible(true);
-	        				loginPass.setText("");
-	        				
-	        			}
-	        			
-	        		} catch (Exception e1) {
-	        			e1.printStackTrace();
-	        		}
-	        	}
-	            	
-	            	
-	            });
+			
 			
 			
 			

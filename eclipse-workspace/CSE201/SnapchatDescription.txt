@@ -1,0 +1,1 @@
+Snapchat is a mobile app that allows users to send and receive "self-destructing" photos and videos. Photos and videos taken with the app are called snaps. Snapchat uses the device's camera to capture snaps and Wi-Fi technology to send them.
