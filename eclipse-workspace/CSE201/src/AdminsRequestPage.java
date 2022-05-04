@@ -150,20 +150,42 @@ public class AdminsRequestPage extends JFrame{
             		File temp = new File("myTempFile.txt");  
             		
             		String delete = textBox.getText();
-            		FileWriter fw = new FileWriter(temp,true); 
+            		FileWriter fw = new FileWriter(temp,false); 
             		BufferedReader reader = new BufferedReader(new FileReader(filename));
             		
             		for(String line; (line = reader.readLine()) != null;) {
             			if(line.equals(delete)) {
             				continue;
+            			} else {
+            				
+            				fw.write(line + "\n");
+            				
             			}
-            			fw.write(line + "\n");
+            			
             		}
+            		
+            		
+            		
             		comments.append("You just deleted \"" + textBox.getText() + "\" from the app list!" + "\n");
                 	textBox.setText(null);
-                	 fw.close(); 
-                     reader.close(); 
+                	
+                	fw.close(); 
+                    reader.close(); 
+                	
+            		FileWriter fw2 = new FileWriter(filename,false); 
+            		BufferedReader reader2 = new BufferedReader(new FileReader(temp));
+            		
+            		for(String line; (line = reader2.readLine()) != null;) {
+            				
+            				fw2.write(line + "\n");
+            			
+            		}
+                	
+                	
                 	boolean successful = temp.renameTo(filename);
+                	fw2.close(); 
+                    reader2.close(); 
+                	
                     System.out.println(successful);
             	}catch(IOException ioe){
             	    System.err.println("IOException: " + ioe.getMessage());
