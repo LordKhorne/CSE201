@@ -59,7 +59,7 @@ public class LoginPage extends JFrame {
 			
 			frame = this;
 			setTitle("Meta-Repo");
-			frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+			
 			setBounds(100, 100, 800, 600);
 			contentPane = new JPanel();
 			contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -243,12 +243,16 @@ public class LoginPage extends JFrame {
 	        						File reader = new File("appList.txt");
 	        						try {
 	        							Scanner appReader = new Scanner(reader);
-	        							while (appReader.hasNextLine()) {
-	        								String name = appReader.nextLine();
-	        								Application tmp = new Application(name);
-	        								newWindow.apps.add(tmp);
+	        							
+	        							if(newWindow.apps.size() == 0) {
+	        							
+	        								while (appReader.hasNextLine()) {
+	        									String name = appReader.nextLine();
+	        									Application tmp = new Application(name);
+	        									newWindow.apps.add(tmp);
 	        								
 	        								
+	        								}
 	        							}
 	        						} catch (FileNotFoundException e1) {
 	        							// TODO Auto-generated catch block

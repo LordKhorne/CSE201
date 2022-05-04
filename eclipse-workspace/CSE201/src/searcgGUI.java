@@ -151,21 +151,6 @@ public class searcgGUI {
             	frame.setVisible(false);
 				
 				AppGUI newWindow = new AppGUI();
-				File reader = new File("appList.txt");
-				try {
-					Scanner appReader = new Scanner(reader);
-					while (appReader.hasNextLine()) {
-						String name = appReader.nextLine();
-						Application tmp = new Application(name);
-						newWindow.apps.add(tmp);
-						
-						
-					}
-				} catch (FileNotFoundException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				
 				
 				
 				newWindow.createFrame();
