@@ -73,6 +73,9 @@ public class AdminsRequestPage extends JFrame{
             	contentPane.setVisible(false);
 				
 				AppGUI newWindow = new AppGUI();
+				
+				newWindow.apps.clear();
+				
 				File reader = new File("appList.txt");
 				try {
 					Scanner appReader = new Scanner(reader);
