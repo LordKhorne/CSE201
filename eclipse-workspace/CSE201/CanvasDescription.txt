@@ -1,0 +1,1 @@
+Canvas is a course management system that supports online learning and teaching. It allows professors to post grades, information, and assignments online. It is being used by universities and colleges all over the world.
